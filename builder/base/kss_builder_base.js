@@ -1067,7 +1067,7 @@ class KssBuilderBase {
         for (let key in this.options.css) {
           // istanbul ignore else
           if (this.options.css.hasOwnProperty(key)) {
-            context.styles = context.styles + '<link rel="stylesheet" href="' + this.options.css[key] + '">\n';
+            context.styles = context.styles + '<link rel="stylesheet" href="' + path.relative(this.options.destination, this.options.css[key]) + '">\n';
           }
         }
       }
@@ -1077,7 +1077,7 @@ class KssBuilderBase {
         for (let key in this.options.js) {
           // istanbul ignore else
           if (this.options.js.hasOwnProperty(key)) {
-            context.scripts = context.scripts + '<script src="' + this.options.js[key] + '"></script>\n';
+            context.scripts = context.scripts + '<script src="' + path.relative(this.options.destination, this.options.js[key]) + '"></script>\n';
           }
         }
       }
